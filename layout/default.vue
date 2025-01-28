@@ -1,107 +1,68 @@
+<!-- layouts/default.vue -->
 <template>
-    <header>
-      <div class="logo-container">
-        <nuxt-link to="/">
-          <img src="/assets/iconn.png" alt="チームロゴ" class="logo" />
-        </nuxt-link>
-        <h1 class="team-name">ブロスタサークル</h1>
-      </div>
+  <div class="layout-container">
+    <!-- サイドバー -->
+    <div class="sidebar">
       <nav>
-        <ul class="nav-list">
-          <li><nuxt-link to="/about">メンバー紹介</nuxt-link></li>
-          <li><a href="#members">大会結果</a></li>
-          <li><a href="#news">ニュース</a></li>
-          <li><a href="#contact">お問い合わせ</a></li>
+        <ul>
+          <li><NuxtLink to="/">Home</NuxtLink></li>
+          <li><NuxtLink to="/about">About</NuxtLink></li>
+          <li><NuxtLink to="/contact">Contact</NuxtLink></li>
         </ul>
       </nav>
-    </header>
-  </template>
-  
-  <script>
- import Header from '@/components/Header.vue';
+    </div>
 
-export default {
-    name: 'DefaultLayout',
-  components: {
-    Header,
-  },
-};
-  </script>
-  
-  <style scoped>
-  /* ヘッダー */
-  header {
-    background-image: url('/assets/img1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    position: relative;
-    z-index: 10;
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 80px;
-    margin-right: 10px;
-  }
-  
-  .team-name {
-    font-size: 2.5em;
-    font-weight: bold;
-  }
-  
-  nav {
-    margin-left: auto;
-    
-    border-radius: 10px;
-    padding: 10px 20px;
-  }
-  
-  .nav-list {
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .nav-list li {
-    font-size: 1.2em;
-  }
-  
-  .nav-list li a, .nav-list li nuxt-link {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.3s, transform 0.3s;
-  }
-  
-  .nav-list li a:hover, .nav-list li nuxt-link:hover {
-    color: #1e90ff;
-    transform: scale(1.1); /* ホバー時に少し拡大 */
-  }
-  
-  /* グローバル設定 */
-  #app {
-    background-image: url('/assets/img1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  </style>
-  
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+      <header>
+        <h1>Website Header</h1>
+      </header>
+
+      <main>
+        <slot></slot> <!-- ページごとの内容 -->
+      </main>
+    </div>
+  </div>
+</template>
+
+<script setup>
+// 追加のロジックやデータが必要であればここに追加
+</script>
+
+<style scoped>
+.layout-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 10px 0;
+}
+
+.sidebar nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+header {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+</style>

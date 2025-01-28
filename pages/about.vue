@@ -140,17 +140,31 @@
   }
   
   #app {
-    background-image: url('/assets/back.jpg'); /* パブリックアセットフォルダを使用 */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+  position: relative;
+  background-image: url('/assets/back.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 背景の上に暗いオーバーレイを追加 */
+#app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* 透明度0.5で暗くする */
+  z-index: -1; /* 背景が重ならないように後ろに配置 */
+}
+
   
   h2 {
     font-size: 2.5em;
@@ -177,7 +191,7 @@
   .members {
     padding: 40px 20px;
     text-align: center;
-    /*display: grid;*/
+   /* display: grid;*/
     grid-template-columns: repeat(4, 1fr); /* 3列に設定 */
   }
   

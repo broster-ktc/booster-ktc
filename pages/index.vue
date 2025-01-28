@@ -9,7 +9,7 @@
         <p>
           私たちのチームは、最高のプレイヤーが集まった精鋭集団です。どんな戦いでも勝利を目指します。
         </p>
-       
+     <img src='/assets/main.jpg' alt="aaa">  
       </section>
   
       <!-- フッター -->
@@ -24,6 +24,14 @@
 
   
   <style scoped>
+
+#about img {
+  width: 100%;   /* 親要素の幅に合わせて画像をリサイズ */
+  max-width: 800px; /* 最大幅を800pxに設定 */
+  height: auto;  /* 高さは自動調整 */
+  margin-top: 20px; /* 上のマージンを追加 */
+}
+
   /* グローバル設定 */
   a {
     color: #1e90ff;
