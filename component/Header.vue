@@ -2,7 +2,7 @@
     <header>
       <div class="logo-container">
         <nuxt-link to="/">
-          <img src="/assets/iconn.png" alt="チームロゴ" class="logo" />
+          <img src="/assets/b-iconn.png" alt="チームロゴ" class="logo" />
         </nuxt-link>
         <h1 class="team-name">ブロスタサークル</h1>
       </div>
@@ -45,7 +45,7 @@
   }
   
   .logo {
-    width: 80px;
+    width: 130px;
     margin-right: 10px;
   }
   

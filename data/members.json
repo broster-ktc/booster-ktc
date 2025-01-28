@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "田中a 太郎",
+    "favorite": "タラ",
+    "image": "/assets/diver-6926378_1920.png",
+    "toro": "50000",
+    "tiktok": "https://twitch.tv/member1",
+    "x": "https://twitter.com/member1",
+    "instagram": "https://instagram.com/member1",
+    "youtube": "https://youtube.com/member1"
+  },
+  {
+    "id": 2,
+    "name": "佐藤 花子",
+    "favorite": "ガス",
+    "image": "./assets/b.jpg",
+    "toro": "50000",
+    "tiktok": "https://twitch.tv/member1",
+    "x": "https://twitter.com/member1",
+    "instagram": "https://instagram.com/member1",
+    "youtube": "https://youtube.com/member1"
+  },
+  {
+    "id": 3,
+    "name": "鈴木 次郎",
+    "favorite": "カール",
+    "image": "./assets/c.jpg",
+    "toro": "50000",
+    "twitchLink": "https://twitch.tv/member3",
+    "twitter": "https://twitter.com/member3",
+    "instagram": "https://instagram.com/member3",
+    "youtube": "https://youtube.com/member3"
+  },
+  {
+    "id": 4,
+    "name": "高橋 明",
+    "favorite": "ニタ",
+    "image": "./assets/d.jpg",
+    "toro": "50000",
+    "twitchLink": "https://twitch.tv/member4",
+    "twitter": "https://twitter.com/member4",
+    "instagram": "https://instagram.com/member4",
+    "youtube": "https://youtube.com/member4"
+  },
+  {
+    "id": 5,
+    "name": "伊藤 優",
+    "favorite": "ルー",
+    "image": "./assets/e.jpg",
+    "toro": "50000",
+    "twitchLink": "https://twitch.tv/member5",
+    "twitter": "https://twitter.com/member5",
+    "instagram": "https://instagram.com/member5",
+    "youtube": "https://youtube.com/member5"
+  },
+  {
+    "id": 6,
+    "name": "渡辺 直樹",
+    "favorite": "ビー",
+    "image": "./assets/e.jpg",
+    "toro": "50000",
+    "twitchLink": "https://twitch.tv/member6",
+    "twitter": "https://twitter.com/member6",
+    "instagram": "https://instagram.com/member6",
+    "youtube": "https://youtube.com/member6"
+  },
+  {
+    "id": 7,
+    "name": "山田 太一",
+    "favorite": "プリモ",
+    "image": "./assets/f.jpg",
+    "toro": "50000",
+    "twitchLink": "https://twitch.tv/member7",
+    "twitter": "https://twitter.com/member7",
+    "instagram": "https://instagram.com/member7",
+    "youtube": "https://youtube.com/member7"
+  },
+  {
+    "id": 8,
+    "name": "岡田 彩",
+    "favorite": "ポニー",
+    "image": "./assets/g.jpg",
+    "toro": "50000",
+    "twitchLink": "https://twitch.tv/member8",
+    "twitter": "https://twitter.com/member8",
+    "instagram": "https://instagram.com/member8",
+    "youtube": "https://youtube.com/member8"
+  }
+]
