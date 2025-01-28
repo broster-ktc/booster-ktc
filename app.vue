@@ -10,14 +10,17 @@
 </template>
 
 <script>
-import Header from '~/components/Header.vue' // Headerコンポーネントをインポート
-import Footer from '~/components/Footer.vue' // Footerコンポーネントをインポート
+import Header from '@/component/Header.vue' // Headerコンポーネントをインポート
+
+import Footer from '@/component/Footer.vue';
 
 export default {
   name: 'App',
   components: {
     Header // コンポーネントとしてHeaderを登録
-  }
+    ,
+    Footer
+}
 }
 </script>
 
@@ -29,7 +32,5 @@ export default {
   padding: 0;
 }
 
-main {
-  padding: 20px;
-}
+
 </style>

@@ -9,30 +9,7 @@
         <p>
           私たちのチームは、最高のプレイヤーが集まった精鋭集団です。どんな戦いでも勝利を目指します。
         </p>
-      </section>
-      <h2>メンバー紹介</h2>
-      <section id="members" class="members">
-        <div v-for="(member, index) in members" :key="index" class="member-card">
-          <img class="member-img" :src="member.image" :alt="'メンバー' + (index + 1)" />
-          <h3>{{ member.name }}</h3>
-          <p>得意キャラ: {{ member.favorite }}</p>
-          <p>総合トロフィー: {{ member.toro }}</p>
-  
-          <div class="social-links">
-            <a :href="member.twitchLink" target="_blank">
-              <img src="/assets/icon-ig.png" alt="Twitch" class="social-icon" />
-            </a>
-            <a :href="member.twitter" target="_blank">
-              <img src="/assets/icon-x.png" alt="Twitter" class="social-icon" />
-            </a>
-            <a :href="member.instagram" target="_blank">
-              <img src="/assets/icon-you.png" alt="Instagram" class="social-icon" />
-            </a>
-            <a :href="member.youtube" target="_blank">
-              <img src="/assets/icon-tiktok.png" alt="YouTube" class="social-icon" />
-            </a>
-          </div>
-        </div>
+       
       </section>
   
       <!-- フッター -->
@@ -40,97 +17,11 @@
     </div>
   </template>
   
-  <script>
-  export default {
-    name: 'App',
-    data() {
-      return {
-        members: [
-          {
-            name: 'メンバー1',
-            favorite: 'タラ',
-            image: './assets/a.jpg',
-            toro: '50000',
-            twitchLink: 'https://twitch.tv/member1',
-            twitter: 'https://twitter.com/member1',
-            instagram: 'https://instagram.com/member1',
-            youtube: 'https://youtube.com/member1',
-          },
-          {
-            name: 'メンバー2',
-            favorite: 'ガス',
-            image: './assets/b.jpg',
-            toro: '50000',
-            twitchLink: 'https://twitch.tv/member2',
-            twitter: 'https://twitter.com/member2',
-            instagram: 'https://instagram.com/member2',
-            youtube: 'https://youtube.com/member2',
-          },
-          {
-            name: 'メンバー3',
-            favorite: 'カール',
-            image: './assets/c.jpg',
-            toro: '50000',
-            twitchLink: 'https://twitch.tv/member3',
-            twitter: 'https://twitter.com/member3',
-            instagram: 'https://instagram.com/member3',
-            youtube: 'https://youtube.com/member3',
-          },
-          {
-            name: 'メンバー4',
-            favorite: 'ニタ',
-            image: './assets/d.jpg',
-            toro: '50000',
-            twitchLink: 'https://twitch.tv/member4',
-            twitter: 'https://twitter.com/member4',
-            instagram: 'https://instagram.com/member4',
-            youtube: 'https://youtube.com/member4',
-          },
-          {
-            name: 'メンバー5',
-            favorite: 'ルー',
-            image: './assets/e.jpg',
-            toro: '50000',
-            twitchLink: 'https://twitch.tv/member5',
-            twitter: 'https://twitter.com/member5',
-            instagram: 'https://instagram.com/member5',
-            youtube: 'https://youtube.com/member5',
-          },
-          {
-            name: 'メンバー6',
-            favorite: 'ビー',
-            image: './assets/e.jpg',
-            toro: '50000',
-            twitchLink: 'https://twitch.tv/member6',
-            twitter: 'https://twitter.com/member6',
-            instagram: 'https://instagram.com/member6',
-            youtube: 'https://youtube.com/member6',
-          },
-          {
-            name: 'メンバー7',
-            favorite: 'プリモ',
-            image: './assets/f.jpg',
-            toro: '50000',
-            twitchLink: 'https://twitch.tv/member7',
-            twitter: 'https://twitter.com/member7',
-            instagram: 'https://instagram.com/member7',
-            youtube: 'https://youtube.com/member7',
-          },
-          {
-            name: 'メンバー8',
-            favorite: 'ポニー',
-            image: './assets/g.jpg',
-            toro: '50000',
-            twitchLink: 'https://twitch.tv/member8',
-            twitter: 'https://twitter.com/member8',
-            instagram: 'https://instagram.com/member8',
-            youtube: 'https://youtube.com/member8',
-          },
-        ],
-      }
-    },
-  }
-  </script>
+  <script>export default {
+    layout: 'default',  // 'default' レイアウトを使用
+  };</script>
+  
+
   
   <style scoped>
   /* グローバル設定 */

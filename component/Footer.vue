@@ -25,6 +25,9 @@ a {
     padding: 0;
   }
   
+  p{
+    color: white;
+  }
  
 /* フッター */
 footer {
