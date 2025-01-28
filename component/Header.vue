@@ -25,7 +25,7 @@
   <style scoped>
   /* ヘッダー */
   header {
-    background-image: url('/assets/img1.jpg');
+    background-image: url('/assets/back.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
