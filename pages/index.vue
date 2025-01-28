@@ -36,7 +36,7 @@
   }
   
   #app {
-    background-image: url('/assets/img1.jpg'); /* パブリックアセットフォルダを使用 */
+    background-image: url('/assets/back.jpg'); /* パブリックアセットフォルダを使用 */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
