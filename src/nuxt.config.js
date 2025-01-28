@@ -1,5 +1,4 @@
-// nuxt.config.js
 export default defineNuxtConfig({
-  srcDir: 'src/', // ソースディレクトリを指定
-  components: true,
-})
+  pages: true, // または、この項目を削除
+  // 他の設定
+});
