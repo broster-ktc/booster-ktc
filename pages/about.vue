@@ -37,7 +37,7 @@
   <script>
  export default {
   name: 'App',
-  layout: 'special',  // 'special' レイアウトを使用
+  layout: 'default',  
   data() {
     return {
         members: [
