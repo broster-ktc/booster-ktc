@@ -12,7 +12,9 @@
      <img src='/assets/grope.jpg' alt="aaa">  
       </section>
   
-      <!-- フッター -->
+    <section>
+      <h2> Store</h2>
+    </section>
     
     </div>
   </template>
@@ -31,13 +33,10 @@
   height: auto; /* 高さは自動調整 */
   margin-top: 20px; /* 上のマージンを追加 */
   border-radius: 15px; /* 角を丸くする */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* 立体的な影を付ける */
+  box-shadow: 0 50px 80px rgba(0, 0, 0, 0.5); /* 立体的な影を付ける */
 }
 
-#about img:hover {
- 
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* 影を大きくしてより立体感を出す */
-}
+
 
 
   /* グローバル設定 */
