@@ -159,7 +159,7 @@ h2 {
   border-radius: 10px;
 }
 .member-card {
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .member-card:hover {
