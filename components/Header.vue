@@ -10,8 +10,9 @@
         <ul class="nav-list">
           <li><nuxt-link to="/about">メンバー紹介</nuxt-link></li>
           <li><a href="#members">大会結果</a></li>
-          <li><a href="news">ニュース</a></li>
-          <li><a href="#contact">お問い合わせ</a></li>
+          <li><nuxt-link to="/news">ニュース</nuxt-link></li>
+
+          <li><nuxt-link to="/qa">お問い合わせ</nuxt-link></li>
         </ul>
       </nav>
     </header>

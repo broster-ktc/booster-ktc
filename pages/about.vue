@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- ヘッダー -->
+    
 
     <h2>メンバー紹介</h2>
     <section id="members" class="members">
