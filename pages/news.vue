@@ -1,45 +1,59 @@
 <template>
     <div id="app">
-      <h1 class="page-title">News</h1>
-      <ul class="news-list">
-        <li v-for="newsItem in news" :key="newsItem.id" class="news-item">
+      <h2 class="page-title">News</h2>
+  
+      <!-- ニュースリスト部分 -->
+      <ul v-if="!selectedNewsItem" class="news-list">
+        <li v-for="newsItem in news" :key="newsItem.id" class="news-item" @click="showDetails(newsItem)">
           <h2 class="news-title">{{ newsItem.title }}</h2>
-          <p class="news-description">{{ newsItem.content }}</p>
           <small class="news-date">{{ newsItem.date }}</small>
           <img :src="newsItem.image?.url" alt="" class="news-image" v-if="newsItem.image" />
         </li>
       </ul>
+  
+      <!-- 詳細表示部分 -->
+      <div v-if="selectedNewsItem" class="news-detail">
+        <h2 class="news-title">{{ selectedNewsItem.title }}</h2>
+        <p class="news-description">{{ selectedNewsItem.content }}</p>
+        <small class="news-date">{{ selectedNewsItem.date }}</small>
+        <img :src="selectedNewsItem.image?.url" alt="" class="news-image" v-if="selectedNewsItem.image" />
+        <button @click="closeDetails">Close</button>
+      </div>
     </div>
   </template>
   
   <script>
-  // axiosをインポート
   import axios from 'axios';
   
   export default {
     data() {
       return {
-        news: [],
+        news: [], // ニュースアイテムを格納する配列
+        selectedNewsItem: null, // 初期状態では詳細は非表示（null）
       };
     },
     async mounted() {
       try {
-        // MicroCMSのAPIエンドポイントとAPIキーを指定
-        const apiUrl = 'https://9sbf9z4wl3.microcms.io/api/v1/news'; // エンドポイント
-        const apiKey = '9T1FcWxsEOpZhcmqHl9q1Co7mX6IO0fZo3wN'; // 実際のAPIキー
-  
-        // APIリクエストを送信
+        const apiUrl = 'https://9sbf9z4wl3.microcms.io/api/v1/news';
+        const apiKey = '9T1FcWxsEOpZhcmqHl9q1Co7mX6IO0fZo3wN';
         const response = await axios.get(apiUrl, {
           headers: {
-            'X-MICROCMS-API-KEY': apiKey, // APIキーをヘッダーに設定
+            'X-MICROCMS-API-KEY': apiKey,
           },
         });
-  
-        // レスポンスのデータを`news`に格納
-        this.news = response.data.contents; // MicroCMSのレスポンスに合わせて修正
-  
+        this.news = response.data.contents; // APIから取得したニュースデータをセット
       } catch (error) {
-        console.error('Error fetching news:', error); // エラーがあれば表示
+        console.error('Error fetching news:', error);
+      }
+    },
+    methods: {
+      // ニュースアイテムをクリックした時に詳細を表示
+      showDetails(newsItem) {
+        this.selectedNewsItem = newsItem; // クリックされたニュースをselectedNewsItemにセット
+      },
+      // 詳細を閉じる
+      closeDetails() {
+        this.selectedNewsItem = null; // 詳細を非表示にする
       }
     },
   }
@@ -47,7 +61,7 @@
   
   <style scoped>
   #app {
-    background-image: url('/assets/back.jpg'); /* 背景画像 */
+    background-image: url('/assets/back.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -57,7 +71,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* コンテンツを中央に配置 */
+    justify-content: center; /* 画面の中央に配置 */
     align-items: center;
   }
   
@@ -66,33 +80,36 @@
     text-align: center;
     margin-bottom: 30px;
     color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* タイトルに影をつけて目立たせる */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   }
   
   .news-list {
     list-style-type: none;
     padding: 0;
     width: 80%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   
   .news-item {
-    background-color: rgba(255, 255, 255, 0.85); /* 半透明の背景 */
+    background-color: rgba(255, 255, 255, 0.85);
     color: black;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 強調した影 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    cursor: pointer; /* カーソルをポインターに変更 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 600px;
+    margin: 10px auto; /* 中央配置 */
   }
   
   .news-item:hover {
-    transform: translateY(-8px); /* ホバー時に少し浮き上がる */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* さらに強調された影 */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   }
   
   .news-title {
@@ -106,7 +123,7 @@
     font-size: 1.1em;
     margin-top: 10px;
     color: #555;
-    line-height: 1.6; /* 読みやすくするための行間調整 */
+    line-height: 1.6;
   }
   
   .news-date {
@@ -117,17 +134,41 @@
   }
   
   .news-image {
-    width: 100%;  /* 親要素の幅に合わせて画像をリサイズ */
-    max-width: 100%; /* 最大幅を100%に設定 */
+    width: 100%;
+    max-width: 100%;
     height: auto;
     margin-top: 15px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* 画像に影をつける */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    max-height: 280px;
+  }
+  
+  .news-detail {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .news-detail button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .news-detail button:hover {
+    background-color: #0056b3;
   }
   
   @media (max-width: 768px) {
     .news-item {
-      width: 100%; /* スマホでは幅を100%に */
+      width: 100%;
       padding: 15px;
     }
   }

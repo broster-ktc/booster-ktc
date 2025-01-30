@@ -12,8 +12,9 @@
      <img src='/assets/grope.jpg' alt="aaa">  
       </section>
   
-    <section>
-      <h2> Store</h2>
+    <section id="store" class="store">
+      <h2 class="store-h2"> Store</h2>
+      <a class="store-tag" href="https://brosterclub.base.shop/"><img class="store-img" src="/assets/store.jpeg" alt=""></a>
     </section>
     
     </div>
@@ -21,7 +22,10 @@
   
   <script>export default {
     layout: 'default',  // 'default' レイアウトを使用
-  };</script>
+  };
+  
+  
+  </script>
   
 
   
@@ -74,7 +78,7 @@
   .members {
     padding: 40px 20px;
     text-align: center;
-    margin-left: 2rem;
+   
   }
   
   .member-card {
@@ -90,6 +94,14 @@
     text-align: center;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 3列に設定 */
+  }
+
+  .store-h2 {
+   margin-bottom: 1rem;
+   margin-top: 5rem;
+  }
+  .store-tag {
+    text-align: center;
   }
   
   .member-card img {
@@ -110,7 +122,24 @@
     display: block;
     margin-top: 10px;
   }
-  
+.store{
+  text-align: center;
+}
+.store-img {
+  width: 50rem;
+  height: auto;
+  margin-top: 0px;
+  border-radius: 15px;
+  box-shadow: 0 50px 80px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.1s ease;
+  margin-bottom: 3rem;
+}
+
+.store-img:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+}
+
   /* SNSアイコンのスタイル */
   /* SNSアイコンのスタイル */
   .social-links {

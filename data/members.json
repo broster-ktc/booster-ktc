@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id":"cq55cxzw24ll" ,
     "name": "新門 紅丸",
     "favorite": "サージ",
     "image": "/assets/p-icon1.png",
@@ -11,7 +11,7 @@
     "youtube": "https://youtube.com/member1"
   },
   {
-    "id": 2,
+    "id": "0d4c40did68t",
     "name": "タダクニ",
     "favorite": "不明",
     "image": "/assets/p-icon2.png",
@@ -22,10 +22,10 @@
     "youtube": "https://youtube.com/member1"
   },
   {
-    "id": 3,
-    "name": "鈴木 次郎",
+    "id": "v86ej3r0z8b",
+    "name": "じぇじぇ",
     "favorite": "カール",
-    "image": "./assets/c.jpg",
+    "image": "/assets/p-icon3.png",
     "toro": "50000",
     "twitchLink": "https://twitch.tv/member3",
     "twitter": "https://twitter.com/member3",
@@ -33,10 +33,10 @@
     "youtube": "https://youtube.com/member3"
   },
   {
-    "id": 4,
-    "name": "高橋 明",
+    "id":"y_9psy8x8oi",
+    "name": "milky",
     "favorite": "ニタ",
-    "image": "./assets/d.jpg",
+    "image": "/assets/p-icon4.png",
     "toro": "50000",
     "twitchLink": "https://twitch.tv/member4",
     "twitter": "https://twitter.com/member4",
@@ -44,10 +44,10 @@
     "youtube": "https://youtube.com/member4"
   },
   {
-    "id": 5,
-    "name": "伊藤 優",
-    "favorite": "ルー",
-    "image": "./assets/e.jpg",
+    "id": "27ad41jbln",
+    "name": "ガチ勢ネキ",
+    "favorite": "ダリル",
+    "image": "/assets/p-icon5.png",
     "toro": "50000",
     "twitchLink": "https://twitch.tv/member5",
     "twitter": "https://twitter.com/member5",
@@ -55,10 +55,10 @@
     "youtube": "https://youtube.com/member5"
   },
   {
-    "id": 6,
-    "name": "渡辺 直樹",
+    "id": "5_alz1wcwk",
+    "name": "OTK",
     "favorite": "ビー",
-    "image": "./assets/e.jpg",
+    "image": "/assets/p-icon6.png",
     "toro": "50000",
     "twitchLink": "https://twitch.tv/member6",
     "twitter": "https://twitter.com/member6",
@@ -69,7 +69,7 @@
     "id": 7,
     "name": "山田 太一",
     "favorite": "プリモ",
-    "image": "./assets/f.jpg",
+    "image": "/assets/f.jpg",
     "toro": "50000",
     "twitchLink": "https://twitch.tv/member7",
     "twitter": "https://twitter.com/member7",
@@ -77,10 +77,21 @@
     "youtube": "https://youtube.com/member7"
   },
   {
-    "id": 8,
-    "name": "岡田 彩",
+    "id": "6035b6ab3",
+    "name": "Cekky Cat",
     "favorite": "ポニー",
-    "image": "./assets/g.jpg",
+    "image": "/assets/",
+    "toro": "50000",
+    "twitchLink": "https://twitch.tv/member8",
+    "twitter": "https://twitter.com/member8",
+    "instagram": "https://instagram.com/member8",
+    "youtube": "https://youtube.com/member8"
+  },
+  {
+    "id": "mk37cns6t9",
+    "name": "Cekky Cat",
+    "favorite": "ポニー",
+    "image": "/assets/p-icon7.png",
     "toro": "50000",
     "twitchLink": "https://twitch.tv/member8",
     "twitter": "https://twitter.com/member8",

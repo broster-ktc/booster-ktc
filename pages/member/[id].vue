@@ -27,15 +27,14 @@
     <p>メンバーが見つかりません。</p>
   </div>
 </template>
-
 <script setup>
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import membersData from '~/data/members.json'
 
-// ルートパラメータからIDを取得
+// ルートパラメータからIDを取得（string型として扱う）
 const route = useRoute()
-const memberId = parseInt(route.params.id, 10)
+const memberId = route.params.id // そのままstring型として取得
 const member = ref(null)
 
 onMounted(() => {
@@ -43,6 +42,7 @@ onMounted(() => {
   member.value = membersData.find((member) => member.id === memberId)
 })
 </script>
+
 
 <style>
 
