@@ -119,6 +119,7 @@
     color: gray;
     margin-top: 10px;
     text-align: left;
+    margin-bottom: 30px;
   }
   
   .news-image {
@@ -129,16 +130,18 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     max-height: 580px;
+    margin-bottom: 15px;
   }
   
   .news-detail {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 15px;
-    max-width: 500px;
+    max-width: 750px;
     margin: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-     margin: 0 auto; 
+     margin: 0 auto;
+    margin-bottom: 25px;
   }
   
   .news-detail button {
