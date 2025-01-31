@@ -1,110 +1,177 @@
 <template>
-    <div class="iframe-container">
-        <iframe class="iframe" width="760" height="515" src="https://www.youtube.com/embed/lnHJpTMnB4g?si=_bkBwNyv3Pw9ANu7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div id="app">
+      <h2 class="page-title">活動</h2>
+  
+      <!-- ニュースリスト部分 -->
+      <ul v-if="!selectedNewsItem" class="news-list">
+        <li v-for="newsItem in news" :key="newsItem.id" class="news-item" @click="showDetails(newsItem)">
+         <!--<h2 class="news-title">{{ newsItem.title }}</h2>
+          <small class="news-date">{{ newsItem.date }}</small>--> 
+          <img :src="newsItem.image?.url" alt="" class="news-image" v-if="newsItem.image" />
+        </li>
+      </ul>
+  
+      <!-- 詳細表示部分 -->
+      <div v-if="selectedNewsItem" class="news-detail">
+        <h2 class="news-title">{{ selectedNewsItem.title }}</h2>
+        <p class="news-description">{{ selectedNewsItem.content }}</p>
+        <small class="news-date">{{ selectedNewsItem.date }}</small>
+        <img :src="selectedNewsItem.image?.url" alt="" class="news-image" v-if="selectedNewsItem.image" />
+        <button @click="closeDetails">Close</button>
+      </div>
     </div>
-</template>
+  </template>
+  
+  <script>
+  import axios from 'axios';
+  
+  export default {
+    data() {
+      return {
+        news: [], // ニュースアイテムを格納する配列
+        selectedNewsItem: null, // 初期状態では詳細は非表示（null）
+      };
+    },
+    async mounted() {
+      try {
+        const apiUrl = 'https://wqfkdkp1er.microcms.io/api/v1/achievements';
+        const apiKey = 'I9iu0WyMU0nWG67IONlYf4sVGzfbj3aegKsZ';
+        const response = await axios.get(apiUrl, {
+          headers: {
+            'X-MICROCMS-API-KEY': apiKey,
+          },
+        });
+        this.news = response.data.contents; // APIから取得したニュースデータをセット
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+    },
+    methods: {
+      // ニュースアイテムをクリックした時に詳細を表示
+      showDetails(newsItem) {
+        this.selectedNewsItem = newsItem; // クリックされたニュースをselectedNewsItemにセット
+      },
+      // 詳細を閉じる
+      closeDetails() {
+        this.selectedNewsItem = null; // 詳細を非表示にする
+      }
+    },
+  }
+  </script>
+  
+  <style>
 
-
-<style>
-
-#app {
-  position: relative;
-  background-image: url('/assets/back.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: white;
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  min-height: 100vh; /* 画面の高さに合わせる */
-  display: flex;
-  flex-direction: column;
-}
-
-h1{
-
-
-font-size: 42px;
-
-
-}
-
-.member-p{
-  font-size: 28px;
-}
-.member-container {
-  display: flex;
-  align-items: center; /* 縦方向の中央揃え */
-  justify-content: center; /* 横方向の中央揃え */
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto; /* 左右中央揃え */
-  margin-bottom: 5rem; /* 下の余白も調整 */
-}
-
-
-
-.member-image {
-  flex-shrink: 0;
-  margin-right: 20px;
-}
-
-.member-img {
-  width: 500px;
-  height: 500px;
-  object-fit: cover;
-}
-
-.member-info {
-  display: flex;
-  flex-direction: column;
-  background: rgba(0, 0, 0, 0.6); /* 背景を少し暗くして可読性向上 */
-  border-radius: 10px; /* 角を丸くする */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 少し影をつける */
-  width: 1000px; /* 'rem'から'px'に変更（意図的かどうか不明） */
-  height: auto; /* 高さを自動に調整 */
-  padding: 20px; /* 内側の余白を調整 */
-  text-align: center; /* テキストを中央揃え */
-}
-
-.iframe-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* 親要素の幅に合わせる */
-}
-
-.iframe {
-
-  display: block;
-  margin: 0 auto; /* 横方向で中央揃え */
-  margin-bottom: 3rem;
-  margin-top: 5rem;
-}
+  
+  .page-title {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .news-list {
+    list-style-type: none;
+    padding: 0;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .news-item {
  
-/* フッター */
-footer {
-  background-color: rgba(17, 17, 17, 0.8);
-  padding: 20px;
-  text-align: center;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.social-links {
-  margin-top: 10px;
-}
-
-.social-links a {
-  margin: 0 10px;
-  font-size: 1.2em;
-}
-
-.social-links a:hover {
-  color: #1e90ff;
-}
-</style>
+    color: black;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+   
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.346);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer; /* カーソルをポインターに変更 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 800px;
+    margin: 10px auto; /* 中央配置 */
+  }
+  
+  .news-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.68);
+  }
+  
+  .news-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+  }
+  
+  .news-description {
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .news-date {
+    font-size: 0.9em;
+    color: gray;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .news-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    max-height: 580px;
+  }
+  
+  .news-detail {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+     margin: 0 auto; 
+  }
+  
+  .news-detail button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .news-detail button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .news-item {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .page-title {
+      font-size: 2em;
+    }
+    .news-title {
+      font-size: 1.5em;
+    }
+    .news-description {
+      font-size: 1em;
+    }
+  }
+  </style>
+  
