@@ -15,6 +15,7 @@
     "@nuxtjs/dotenv": "^1.4.2",
     "axios": "^1.7.9",
     "nuxt": "^3.15.3",
+    "swiper": "^11.2.2",
     "vue": "latest",
     "vue-router": "latest"
   }

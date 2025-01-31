@@ -81,6 +81,10 @@ h2 {
   text-align: center;
 }
 
+h3{
+  color: white;
+}
+
 .members {
   padding: 40px 20px;
   text-align: center;
