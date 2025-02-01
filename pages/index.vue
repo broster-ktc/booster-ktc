@@ -123,6 +123,7 @@ h2 {
 text-align: center;
 }
 .store-img {
+  padding: 3rem;
 width: 50rem;
 height: auto;
 margin-top: 0px;
@@ -156,5 +157,15 @@ box-shadow: 0 60px 120px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
 .social-icon:hover {
   transform: scale(1.1);
 }
+  
+  
+@media (max-width: 768px) {
+    .news-item {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  
 
+  
 </style>

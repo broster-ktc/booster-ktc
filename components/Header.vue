@@ -184,7 +184,19 @@ nav {
   .hamburger {
     display: block;
   }
+  
 }
+@media (max-width: 420px) {
+  .team-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.logo {
+  width: 90px;
+  margin-right: 10px;
+}
+}
+
 
 /* グローバル設定 */
 #app {
