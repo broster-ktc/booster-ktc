@@ -12,9 +12,9 @@
    <img src='/assets/b-iconn.png' alt="aaa">  
     </section>
 
-  <section id="store" class="store">
-    <h2 class="store-h2"> Store</h2>
-    <a class="store-tag" href="https://brosterclub.base.shop/"><img class="store-img" src="/assets/store.jpeg" alt=""></a>
+  <section  class="store">
+    <h2  class="store-h2"> Store</h2>
+    <a id="store" class="store-tag" href="https://brosterclub.base.shop/"><img class="store-img" src="/assets/store.jpeg" alt=""></a>
   </section>
   
   </div>

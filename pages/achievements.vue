@@ -34,8 +34,8 @@
     },
     async mounted() {
       try {
-        const apiUrl = 'https://wqfkdkp1er.microcms.io/api/v1/achievements';
-        const apiKey = 'I9iu0WyMU0nWG67IONlYf4sVGzfbj3aegKsZ';
+        const apiUrl = 'https://tzbo429akz.microcms.io/api/v1/achievements';
+        const apiKey = 'g0l29UYCHSmmRpNLwIia2RqsVUxpqbZSdFKf';
         const response = await axios.get(apiUrl, {
           headers: {
             'X-MICROCMS-API-KEY': apiKey,
