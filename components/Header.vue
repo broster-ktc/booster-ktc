@@ -4,7 +4,7 @@
       <nuxt-link to="/">
         <img src="/assets/b-iconn.png" alt="チームロゴ" class="logo" />
       </nuxt-link>
-      <h1 class="team-name">test
+      <h1 class="team-name">ブロスタサークル
       </h1>
     </div>
 

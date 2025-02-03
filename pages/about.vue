@@ -16,7 +16,7 @@
   </div>
 </template>
 <script setup>
-
+import { ref } from 'vue';
 
 // ニュースアイテムを格納する変数
 const news = ref([]);
@@ -37,6 +37,9 @@ watch(() => data.value, (newData) => {
 
 // エラーハンドリングのために`error`と`pending`も使う
 </script>
+
+
+
 <style scoped>
 /* グローバル設定 */
 a {
