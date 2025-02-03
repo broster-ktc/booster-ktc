@@ -9,14 +9,14 @@
       <p>
         私たちのチームは、最高のプレイヤーが集まった精鋭集団です。どんな戦いでも勝利を目指します。
       </p>
-   <img src='/assets/b-iconn.png' alt="aaa">  
+   <img src='/assets/b-iconn.png' alt="aaa">
     </section>
 
   <section  class="store">
     <h2  class="store-h2"> Store</h2>
     <a id="store" class="store-tag" href="https://brosterclub.base.shop/"><img class="store-img" src="/assets/store.jpeg" alt=""></a>
   </section>
-  
+
   </div>
 </template>
 
@@ -75,7 +75,7 @@ h2 {
 .members {
   padding: 40px 20px;
   text-align: center;
- 
+
 }
 
 .member-card {
@@ -157,15 +157,15 @@ box-shadow: 0 60px 120px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
 .social-icon:hover {
   transform: scale(1.1);
 }
-  
-  
+
+
 @media (max-width: 768px) {
     .news-item {
       width: 100%;
       padding: 15px;
     }
   }
-  
 
-  
+
+
 </style>

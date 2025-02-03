@@ -21,10 +21,19 @@
           <img src="../../public/assets/icon-tiktok.png" alt="{{ member.name }}のTikTok" class="social-icon">
         </a>
       </div>
+
     </div>
+
   </div>
+
+
   <div v-else>
     <p>メンバーが見つかりません。</p>
+  </div>
+  <div class="center-container">
+    <nuxt-link to="/about">
+      <button class="center-button">一覧へ</button>
+    </nuxt-link>
   </div>
 </template>
 <script setup>
@@ -78,7 +87,7 @@ font-size: 42px;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto; /* 左右中央揃え */
-  margin-bottom: 5rem; /* 下の余白も調整 */
+  margin-bottom: 2rem; /* 下の余白も調整 */
 }
 
 
@@ -136,6 +145,28 @@ a {
   p{
     color: white;
   }
+
+  .center-container {
+  display: flex;
+  justify-content: center; /* 水平中央 */
+  align-items: center;     /* 垂直中央 */
+margin-bottom: 3rem;
+}
+
+.center-button {
+  padding: 10px 20px; /* ボタンのサイズ調整 */
+  font-size: 16px;    /* ボタンのフォントサイズ */
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.center-button:hover {
+  background-color: #0056b3; /* ボタンホバー時の色 */
+}
 
 /* フッター */
 footer {

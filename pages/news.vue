@@ -1,57 +1,46 @@
 <template>
-    <div id="app">
-      <h2 class="page-title">News</h2>
+  <div id="app">
+    <h2 class="page-title">News</h2>
 
-      <!-- ニュースリスト部分 -->
-      <ul v-if="!selectedNewsItem" class="news-list">
-        <li v-for="newsItem in news" :key="newsItem.id" class="news-item" @click="showDetails(newsItem)">
-          <h2 class="news-title">{{ newsItem.title }}</h2>
-          <small class="news-date">{{ newsItem.date }}</small>
-          <img :src="newsItem.image?.url" alt="" class="news-image" v-if="newsItem.image" />
-        </li>
-      </ul>
+    <!-- ローディング表示 -->
+    <p v-if="pending">Loading...</p>
 
-      <!-- 詳細表示部分 -->
-      <div v-if="selectedNewsItem" class="news-detail">
-        <h2 class="news-title">{{ selectedNewsItem.title }}</h2>
-        <p class="news-description">{{ selectedNewsItem.content }}</p>
-        <small class="news-date">{{ selectedNewsItem.date }}</small>
-        <img :src="selectedNewsItem.image?.url" alt="" class="news-image" v-if="selectedNewsItem.image" />
-        <button @click="closeDetails">Close</button>
-      </div>
+    <!-- エラー表示 -->
+    <p v-if="error">Failed to fetch news. Please try again later.</p>
+
+    <!-- ニュースリスト部分 -->
+    <ul v-if="!selectedNewsItem && !pending && !error" class="news-list">
+      <li v-for="newsItem in news" :key="newsItem.id" class="news-item" @click="showDetails(newsItem)">
+        <h2 class="news-title">{{ newsItem.title }}</h2>
+        <small class="news-date">{{ newsItem.date }}</small>
+        <img :src="newsItem.image?.url" alt="" class="news-image" v-if="newsItem.image" />
+      </li>
+    </ul>
+
+    <!-- 詳細表示部分 -->
+    <div v-if="selectedNewsItem" class="news-detail">
+      <h2 class="news-title">{{ selectedNewsItem.title }}</h2>
+      <p class="news-description">{{ selectedNewsItem.content }}</p>
+      <small class="news-date">{{ selectedNewsItem.date }}</small>
+      <img :src="selectedNewsItem.image?.url" alt="" class="news-image" v-if="selectedNewsItem.image" />
+      <button @click="closeDetails">Close</button>
     </div>
-  </template>
- <script setup>
+  </div>
+</template>
+
+<script setup>
 
 
- // ニュースアイテムを格納する変数
- const news = ref([]);
- const selectedNewsItem = ref(null); // 初期状態では詳細は非表示（null）
-
- // `useFetch`を使ってデータを取得
- const { data, error, pending } = useFetch('https://tzbo429akz.microcms.io/api/v1/news', {
-   headers: {
-     'X-MICROCMS-API-KEY': 'g0l29UYCHSmmRpNLwIia2RqsVUxpqbZSdFKf',
-   },
- });
-
- // `watch`でデータが更新されたら`news`をセット
- watch(() => data.value, (newData) => {
-   if (newData) {
-     news.value = newData.contents; // APIから取得したニュースデータをセット
-   }
- });
-
- // ニュースアイテムをクリックした時に詳細を表示
- const showDetails = (newsItem) => {
-   selectedNewsItem.value = newsItem;
- };
-
- // 詳細を閉じる
- const closeDetails = () => {
-   selectedNewsItem.value = null;
- };
- </script>
+// コンポーザブルを使用してデータを取得
+const {
+  news,
+  selectedNewsItem,
+  error,
+  pending,
+  showDetails,
+  closeDetails
+} = useNews();
+</script>
 
 
 
