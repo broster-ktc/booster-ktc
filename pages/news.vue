@@ -1,7 +1,7 @@
 <template>
     <div id="app">
       <h2 class="page-title">News</h2>
-  
+
       <!-- ニュースリスト部分 -->
       <ul v-if="!selectedNewsItem" class="news-list">
         <li v-for="newsItem in news" :key="newsItem.id" class="news-item" @click="showDetails(newsItem)">
@@ -10,7 +10,7 @@
           <img :src="newsItem.image?.url" alt="" class="news-image" v-if="newsItem.image" />
         </li>
       </ul>
-  
+
       <!-- 詳細表示部分 -->
       <div v-if="selectedNewsItem" class="news-detail">
         <h2 class="news-title">{{ selectedNewsItem.title }}</h2>
@@ -21,44 +21,40 @@
       </div>
     </div>
   </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        news: [], // ニュースアイテムを格納する配列
-        selectedNewsItem: null, // 初期状態では詳細は非表示（null）
-      };
-    },
-    async mounted() {
-      try {
-        const apiUrl = 'https://tzbo429akz.microcms.io/api/v1/news';
-        const apiKey = 'g0l29UYCHSmmRpNLwIia2RqsVUxpqbZSdFKf';
-        const response = await axios.get(apiUrl, {
-          headers: {
-            'X-MICROCMS-API-KEY': apiKey,
-          },
-        });
-        this.news = response.data.contents; // APIから取得したニュースデータをセット
-      } catch (error) {
-        console.error('Error fetching news:', error);
-      }
-    },
-    methods: {
-      // ニュースアイテムをクリックした時に詳細を表示
-      showDetails(newsItem) {
-        this.selectedNewsItem = newsItem; // クリックされたニュースをselectedNewsItemにセット
-      },
-      // 詳細を閉じる
-      closeDetails() {
-        this.selectedNewsItem = null; // 詳細を非表示にする
-      }
-    },
-  }
-  </script>
-  
+ <script setup>
+ import { ref, watch } from 'vue';
+
+ // ニュースアイテムを格納する変数
+ const news = ref([]);
+ const selectedNewsItem = ref(null); // 初期状態では詳細は非表示（null）
+
+ // `useFetch`を使ってデータを取得
+ const { data, error, pending } = useFetch('https://tzbo429akz.microcms.io/api/v1/news', {
+   headers: {
+     'X-MICROCMS-API-KEY': 'g0l29UYCHSmmRpNLwIia2RqsVUxpqbZSdFKf',
+   },
+ });
+
+ // `watch`でデータが更新されたら`news`をセット
+ watch(() => data.value, (newData) => {
+   if (newData) {
+     news.value = newData.contents; // APIから取得したニュースデータをセット
+   }
+ });
+
+ // ニュースアイテムをクリックした時に詳細を表示
+ const showDetails = (newsItem) => {
+   selectedNewsItem.value = newsItem;
+ };
+
+ // 詳細を閉じる
+ const closeDetails = () => {
+   selectedNewsItem.value = null;
+ };
+ </script>
+
+
+
   <style scoped>
   #app {
     background-image: url('/assets/back.jpg');
@@ -74,7 +70,7 @@
     justify-content: center; /* 画面の中央に配置 */
     align-items: center;
   }
-  
+
   .page-title {
     font-size: 3em;
     text-align: center;
@@ -82,7 +78,7 @@
     color: #ffffff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   }
-  
+
   .news-list {
     list-style-type: none;
     padding: 0;
@@ -90,7 +86,7 @@
     max-width: 1000px;
     margin: 0 auto;
   }
-  
+
   .news-item {
     background-color: rgba(255, 255, 255, 0.85);
     color: black;
@@ -106,33 +102,33 @@
     max-width: 600px;
     margin: 10px auto; /* 中央配置 */
   }
-  
+
   .news-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   }
-  
+
   .news-title {
     font-size: 1.8em;
     font-weight: bold;
     margin: 0;
     color: #333;
   }
-  
+
   .news-description {
     font-size: 1.1em;
     margin-top: 10px;
     color: #555;
     line-height: 1.6;
   }
-  
+
   .news-date {
     font-size: 0.9em;
     color: gray;
     margin-top: 10px;
     text-align: left;
   }
-  
+
   .news-image {
     width: 100%;
     max-width: 100%;
@@ -142,7 +138,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     max-height: 280px;
   }
-  
+
   .news-detail {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
@@ -151,7 +147,7 @@
     margin: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
-  
+
   .news-detail button {
     background-color: #007bff;
     color: white;
@@ -161,18 +157,18 @@
     cursor: pointer;
     margin-top: 20px;
   }
-  
+
   .news-detail button:hover {
     background-color: #0056b3;
   }
-  
+
   @media (max-width: 768px) {
     .news-item {
       width: 100%;
       padding: 15px;
     }
   }
-  
+
   @media (max-width: 480px) {
     .page-title {
       font-size: 2em;
@@ -185,4 +181,3 @@
     }
   }
   </style>
-  
