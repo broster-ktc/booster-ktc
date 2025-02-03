@@ -15,40 +15,28 @@
     </section>
   </div>
 </template>
+<script setup>
 
-<script>
-// axiosをインポート
-import axios from 'axios';
 
-export default {
-  data() {
-    return {
-      news: [],
-    };
+// ニュースアイテムを格納する変数
+const news = ref([]);
+
+// `useFetch`を使ってデータを取得
+const { data, error, pending } = useFetch('https://tzbo429akz.microcms.io/api/v1/members', {
+  headers: {
+    'X-MICROCMS-API-KEY': 'g0l29UYCHSmmRpNLwIia2RqsVUxpqbZSdFKf', // APIキーをヘッダーに設定
   },
-  async mounted() {
-    try {
-      // MicroCMSのAPIエンドポイントとAPIキーを指定
-      const apiUrl = 'https://tzbo429akz.microcms.io/api/v1/members';
-      const apiKey = 'g0l29UYCHSmmRpNLwIia2RqsVUxpqbZSdFKf'; // 実際のAPIキー
+});
 
-      // APIリクエストを送信
-      const response = await axios.get(apiUrl, {
-        headers: {
-          'X-MICROCMS-API-KEY': apiKey, // APIキーをヘッダーに設定
-        },
-      });
+// `watch`でデータが更新されたときに`news`を更新
+watch(() => data.value, (newData) => {
+  if (newData) {
+    news.value = newData.contents; // APIから取得したデータを`news`に格納
+  }
+});
 
-      // レスポンスのデータを`news`に格納
-      this.news = response.data.contents; // MicroCMSのレスポンスに合わせて修正
-
-    } catch (error) {
-      console.error('Error fetching news:', error); // エラーがあれば表示
-    }
-  },
-};
+// エラーハンドリングのために`error`と`pending`も使う
 </script>
-
 <style scoped>
 /* グローバル設定 */
 a {

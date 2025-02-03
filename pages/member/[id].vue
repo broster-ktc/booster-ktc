@@ -28,8 +28,7 @@
   </div>
 </template>
 <script setup>
-import { useRoute } from 'vue-router'
-import { ref, onMounted } from 'vue'
+
 import membersData from '~/data/members.json'
 
 // ルートパラメータからIDを取得（string型として扱う）
@@ -37,9 +36,10 @@ const route = useRoute()
 const memberId = route.params.id // そのままstring型として取得
 const member = ref(null)
 
+// コンポーネントのマウント後にメンバー情報を取得
 onMounted(() => {
   // メンバーIDに基づいてデータをフィルタリング
-  member.value = membersData.find((member) => member.id === memberId)
+  member.value = membersData.find((m) => m.id === memberId)
 })
 </script>
 
@@ -113,30 +113,30 @@ a {
     color: #1e90ff;
     text-decoration: none;
   }
-  
+
   ul {
     list-style-type: none;
     padding: 0;
   }
-  
+
   p{
     color: white;
   }
- 
+
 a {
     color: #1e90ff;
     text-decoration: none;
   }
-  
+
   ul {
     list-style-type: none;
     padding: 0;
   }
-  
+
   p{
     color: white;
   }
- 
+
 /* フッター */
 footer {
   background-color: rgba(17, 17, 17, 0.8);
