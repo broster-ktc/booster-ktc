@@ -3,7 +3,8 @@
     <h2>メンバー紹介</h2>
     <section id="members" class="members">
       <ul>
-        <li v-for="member in news" :key="member.id" class="member-card">
+
+        <li v-for="member in news.contents" :key="member.id" class="member-card">
           <nuxt-link :to="`/member/${member.id}`">
             <img :src="member.image?.url" alt="" class="member-img" v-if="member.image" />
             <h3 class="news-title">{{ member.name }}</h3>
@@ -16,37 +17,16 @@
   </div>
 </template>
 
-<script>
-// axiosをインポート
-import axios from 'axios';
+<script setup>
 
-export default {
-  data() {
-    return {
-      news: [],
-    };
+
+// `useFetch` をインポート
+const { data: news, error } = useFetch('https://tzbo429akz.microcms.io/api/v1/members', {
+  headers: {
+    'X-MICROCMS-API-KEY': 'g0l29UYCHSmmRpNLwIia2RqsVUxpqbZSdFKf',
   },
-  async mounted() {
-    try {
-      // MicroCMSのAPIエンドポイントとAPIキーを指定
-      const apiUrl = 'https://tzbo429akz.microcms.io/api/v1/members';
-      const apiKey = 'g0l29UYCHSmmRpNLwIia2RqsVUxpqbZSdFKf'; // 実際のAPIキー
+});
 
-      // APIリクエストを送信
-      const response = await axios.get(apiUrl, {
-        headers: {
-          'X-MICROCMS-API-KEY': apiKey, // APIキーをヘッダーに設定
-        },
-      });
-
-      // レスポンスのデータを`news`に格納
-      this.news = response.data.contents; // MicroCMSのレスポンスに合わせて修正
-
-    } catch (error) {
-      console.error('Error fetching news:', error); // エラーがあれば表示
-    }
-  },
-};
 </script>
 
 <style scoped>
@@ -55,10 +35,11 @@ a {
   color: #1e90ff;
   text-decoration: none;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
+  max-width: 1600px;
+  margin: 0 auto; /* 水平方向で中央揃え */
 }
 
 #app {
@@ -81,7 +62,7 @@ h2 {
   text-align: center;
 }
 
-h3{
+h3 {
   color: white;
 }
 
@@ -105,7 +86,6 @@ h3{
   transform: scale(1.05); /* Slightly enlarges the card */
   background-color: rgba(51, 51, 51, 1); /* Darker background */
 }
-
 
 .member-card img {
   width: 100%;
