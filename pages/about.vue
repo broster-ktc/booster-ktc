@@ -16,7 +16,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+
 
 // ニュースアイテムを格納する変数
 const news = ref([]);

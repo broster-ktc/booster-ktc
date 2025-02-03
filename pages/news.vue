@@ -22,7 +22,7 @@
     </div>
   </template>
  <script setup>
- import { ref, watch } from 'vue';
+
 
  // ニュースアイテムを格納する変数
  const news = ref([]);
