@@ -1,22 +1,14 @@
+// nuxt.config.ts
 export default defineNuxtConfig({
+  // 必要なビルドモジュールを追加
   buildModules: ['@nuxt/http'],
 
-  runtimeConfig: {
-    public: {
-      // 公開用の API キーや URL
-      microcmsApiKeyArticles: process.env.MICROCMS_API_KEY_ARTICLES,
-      microcmsApiKeyCategories: process.env.MICROCMS_API_KEY_CATEGORIES,
-      microcmsApiUrl: 'https://your-service.microcms.io/api/v1/members',
-    },
-    // サーバー側で利用する秘密の設定
-    private: {
-      apiKey: process.env.MICROCMS_API_KEY2,
-    }
+  // 公開環境変数を設定
+  publicRuntimeConfig: {
+    newsApiKey: process.env.NEWS_API_KEY, // .envファイルの環境変数を使用
+    membersApiKey: process.env.MEMBERS_API_KEY,
   },
 
-  http: {
-    baseURL: 'https://your-service.microcms.io/api/v1', // APIのベースURL
-  },
-
+  // 互換性の日付（任意で設定）
   compatibilityDate: '2025-01-30',
 });

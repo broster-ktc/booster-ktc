@@ -4,8 +4,7 @@
       <nuxt-link to="/">
         <img src="/assets/b-iconn.png" alt="チームロゴ" class="logo" />
       </nuxt-link>
-      <h1 class="team-name">ブロスタサークル
-      </h1>
+      <h1 class="team-name">ブロスタサークル</h1>
     </div>
 
     <!-- ハンバーガーメニュー -->
@@ -19,22 +18,22 @@
       <!-- 閉じるボタンをヘッダー上部に固定 -->
       <div class="close-btn" @click="toggleMenu">×</div>
       <ul class="nav-list">
-        <li><nuxt-link to="/about">メンバー紹介</nuxt-link></li>
-        <li><nuxt-link to="/achievements">活動</nuxt-link></li>
-        <li><nuxt-link to="/news">ニュース</nuxt-link></li>
-        <li><nuxt-link to="/#store">ストア</nuxt-link></li>
-        <li><nuxt-link to="/qa">お問い合わせ</nuxt-link></li>
+        <li><nuxt-link to="/about" active-class="active">メンバー紹介</nuxt-link></li>
+        <li><nuxt-link to="/achievements" active-class="active">活動</nuxt-link></li>
+        <li><nuxt-link to="/news" active-class="active">ニュース</nuxt-link></li>
+        <li><nuxt-link to="/#store" active-class="active">ストア</nuxt-link></li>
+        <li><nuxt-link to="/qa" active-class="active">お問い合わせ</nuxt-link></li>
       </ul>
     </nav>
 
     <!-- 通常のナビゲーション（デスクトップ用） -->
     <nav class="desktop-nav">
       <ul class="nav-list">
-        <li><nuxt-link to="/about">メンバー紹介</nuxt-link></li>
-        <li><nuxt-link to="/achievements">活動</nuxt-link></li>
-        <li><nuxt-link to="/news">ニュース</nuxt-link></li>
-        <li><nuxt-link to="/#store">ストア</nuxt-link></li>
-        <li><nuxt-link to="/qa">お問い合わせ</nuxt-link></li>
+        <li><nuxt-link to="/about" active-class="active">メンバー紹介</nuxt-link></li>
+        <li><nuxt-link to="/achievements" active-class="active">活動</nuxt-link></li>
+        <li><nuxt-link to="/news" active-class="active">ニュース</nuxt-link></li>
+        <li><nuxt-link to="/#store" active-class="active">ストア</nuxt-link></li>
+        <li><nuxt-link to="/qa" active-class="active">お問い合わせ</nuxt-link></li>
       </ul>
     </nav>
   </header>
@@ -113,14 +112,16 @@ nav {
   position: relative;
 }
 
-.nav-list li a, .nav-list li nuxt-link {
+.nav-list li a,
+.nav-list li nuxt-link {
   color: #ffffff;
   text-decoration: none;
   font-size: 1.2em;
   transition: color 0.3s;
 }
 
-.nav-list li a::after, .nav-list li nuxt-link::after {
+.nav-list li a::after,
+.nav-list li nuxt-link::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -131,19 +132,27 @@ nav {
   transition: width 0.3s ease;
 }
 
-.nav-list li a:hover::after, .nav-list li nuxt-link:hover::after {
+.nav-list li a:hover::after,
+.nav-list li nuxt-link:hover::after {
   width: 100%;
+}
+
+/* アクティブなリンクのスタイル */
+.nav-list li a.active,
+.nav-list li nuxt-link.active {
+  color: #e91eff;
+  font-weight: bold;
 }
 
 /* モバイル用メニュー */
 .mobile-nav {
-  position: fixed; /* 固定位置でメニューが表示される */
-  top: 0; /* ヘッダーの上に表示 */
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  bottom: 0; /* 下まで広がる */
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 2; /* メニューをヘッダーの上に表示 */
+  z-index: 2;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -162,54 +171,37 @@ nav {
 .hamburger {
   font-size: 2.5em;
   cursor: pointer;
-  display: none; /* デスクトップでは非表示 */
+  display: none;
 }
 
-/* ハンバーガーと閉じるボタン */
 .close-btn {
   position: absolute;
-  top: 20px;  /* ヘッダーの上部に配置 */
-  right: 20px;  /* 右端に配置 */
+  top: 20px;
+  right: 20px;
   font-size: 2.5em;
   cursor: pointer;
   color: #ffffff;
-  z-index: 3; /* ヘッダーとメニューよりも上に */
+  z-index: 3;
 }
 
-/* モバイルでのみハンバーガーを表示 */
 @media (max-width: 768px) {
   .desktop-nav {
-    display: none; /* モバイルではデスクトップメニューを非表示 */
+    display: none;
   }
 
   .hamburger {
     display: block;
   }
-  
 }
+
 @media (max-width: 420px) {
   .team-name {
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-.logo {
-  width: 90px;
-  margin-right: 10px;
-}
-}
-
-
-/* グローバル設定 */
-#app {
-  background-image: url('/assets/img1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: white;
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  .logo {
+    width: 90px;
+    margin-right: 10px;
+  }
 }
 </style>
