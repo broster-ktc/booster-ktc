@@ -45,20 +45,20 @@ const {
 
 
   <style scoped>
-  #app {
-    background-image: url('/assets/back.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 画面の中央に配置 */
-    align-items: center;
-  }
+#app {
+  background-image: url('/assets/back.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px; /* ここでタイトル部分の余白を調整 */
+}
 
   .page-title {
     font-size: 3em;
@@ -150,23 +150,94 @@ const {
   .news-detail button:hover {
     background-color: #e91eff;
   }
+/* スマホ向けにさらにコンパクトなCSS調整 */
 
-  @media (max-width: 768px) {
-    .news-item {
-      width: 100%;
-      padding: 15px;
-    }
+@media (max-width: 768px) {
+  /* ニュースアイテム */
+  .news-item {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
   }
 
-  @media (max-width: 480px) {
-    .page-title {
-      font-size: 2em;
-    }
-    .news-title {
-      font-size: 1.5em;
-    }
-    .news-description {
-      font-size: 1em;
-    }
+  /* 詳細部分 */
+  .news-detail {
+    width: 90%;
+    padding: 15px;
+    margin: 10px auto;
   }
+
+  /* ボタン */
+  .news-detail button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+  }
+
+  /* 画像の調整 */
+  .news-image {
+    width: 100%;
+    height: auto;
+    margin-top: 8px;
+    margin-bottom: 15px;
+  }
+
+  /* 見出しフォントサイズ */
+  .page-title {
+    font-size: 1.8em; /* タイトルを少し大きくする */
+    margin-top: 10px; /* タイトルの上部の余白調整 */
+  }
+
+  .news-title {
+    font-size: 1.4em;
+  }
+
+  .news-description {
+    font-size: 0.95em;
+  }
+
+  /* 日付の調整 */
+  .news-date {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  /* ニュースアイテム */
+  .news-item {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  /* 詳細部分 */
+  .news-detail {
+    width: 85%;
+    padding: 12px;
+  }
+
+  /* ボタン */
+  .news-detail button {
+    padding: 8px;
+    font-size: 1em;
+  }
+
+  /* 見出しフォントサイズ */
+  .page-title {
+    font-size: 1.6em;
+  }
+
+  .news-title {
+    font-size: 1.3em;
+  }
+
+  .news-description {
+    font-size: 0.9em;
+  }
+
+  /* 日付の調整 */
+  .news-date {
+    font-size: 0.75em;
+  }
+}
+
   </style>

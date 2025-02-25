@@ -166,7 +166,39 @@ box-shadow: 0 60px 120px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
       padding: 15px;
     }
   }
+/* スマホ版 */
+@media (max-width: 768px) {
 
+  .news-item {
+      width: 100%;
+      padding: 15px;
+    }
+  /* storeセクション */
+  .store {
+    padding: 15px; /* 余白を少なく */
+  }
 
+  .store-h2 {
+    font-size: 1.8em; /* 見出しを少し小さく */
+  }
 
+  .store-tag {
+    text-align: center;
+    display: block; /* 画像リンクが中央に表示されるように */
+    margin-top: 10px;
+  }
+
+  .store-img {
+    width: 90%; /* 画像の幅を少し小さく */
+    height: auto; /* 高さは自動調整 */
+    padding: 1rem; /* 余白を少なく */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* シャドウを軽く */
+    margin: 0 auto; /* 画像を中央に配置 */
+  }
+
+  .store-img:hover {
+    transform: scale(1.03); /* ズーム効果をさらに軽く */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); /* シャドウも軽め */
+  }
+}
 </style>

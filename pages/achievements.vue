@@ -151,23 +151,93 @@
   .news-detail button:hover {
     background-color: #e91eff;
   }
+/* スマホ向けの更にコンパクトなCSS調整 */
 
-  @media (max-width: 768px) {
-    .news-item {
-      width: 100%;
-      padding: 15px;
-    }
+@media (max-width: 768px) {
+  /* ニュースアイテム */
+  .news-item {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
   }
 
-  @media (max-width: 480px) {
-    .page-title {
-      font-size: 2em;
-    }
-    .news-title {
-      font-size: 1.5em;
-    }
-    .news-description {
-      font-size: 1em;
-    }
+  /* ニュース詳細 */
+  .news-detail {
+    width: 90%;
+    padding: 15px;
+    margin: 10px auto;
   }
+
+  /* ボタン */
+  .news-detail button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+  }
+
+  /* 画像の調整 */
+  .news-image {
+    width: 100%;
+    height: auto;
+    margin-top: 8px;
+    margin-bottom: 15px;
+  }
+
+  /* 見出しフォントサイズ */
+  .page-title {
+    font-size: 1.8em;
+  }
+
+  .news-title {
+    font-size: 1.4em;
+  }
+
+  .news-description {
+    font-size: 0.95em;
+  }
+
+  /* 日付の調整 */
+  .news-date {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  /* ニュースアイテム */
+  .news-item {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  /* 詳細部分 */
+  .news-detail {
+    width: 85%;
+    padding: 12px;
+  }
+
+  /* ボタン */
+  .news-detail button {
+    padding: 8px;
+    font-size: 1em;
+  }
+
+  /* 見出しフォントサイズ */
+  .page-title {
+    font-size: 1.6em;
+  }
+
+  .news-title {
+    font-size: 1.3em;
+  }
+
+  .news-description {
+    font-size: 0.9em;
+  }
+
+  /* 日付の調整 */
+  .news-date {
+    font-size: 0.75em;
+  }
+}
+
   </style>
