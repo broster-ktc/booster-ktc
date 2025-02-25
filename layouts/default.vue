@@ -2,7 +2,7 @@
 	<div>
 		<Header />
     <slot />
-		<Footer /> 
+		<Footer />
 	</div>
 </template>
 <script>
@@ -50,7 +50,7 @@ ul, ol {
 
 a {
   text-decoration: none;
-  color: inherit;
+
 }
 
 img {
@@ -83,7 +83,7 @@ th, td {
 h1 {
   font-family: 'Nico Moji', sans-serif; /* Apply Nico Moji font */
   color: #000; /* Set text color to black */
-  text-shadow: 
+  text-shadow:
     1px 1px 0 #fff,   /* Top-right shadow */
     -1px -1px 0 #fff, /* Bottom-left shadow */
     1px -1px 0 #fff,  /* Top-left shadow */
@@ -95,7 +95,7 @@ h1 {
 h2 {
   font-family: 'M PLUS 1p', sans-serif; /* フォントをM PLUS 1pに設定 */
   color: #000; /* テキストカラーを黒に設定 */
-  text-shadow: 
+  text-shadow:
     1px 1px 0 #fff,   /* 右上の影 */
     -1px -1px 0 #fff, /* 左下の影 */
     1px -1px 0 #fff,  /* 左上の影 */
