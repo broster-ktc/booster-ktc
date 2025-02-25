@@ -123,6 +123,7 @@ h2 {
 text-align: center;
 }
 .store-img {
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 3rem;
 width: 50rem;
 height: auto;

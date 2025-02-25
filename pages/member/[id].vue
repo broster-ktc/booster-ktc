@@ -115,6 +115,10 @@ font-size: 42px;
   text-align: center; /* テキストを中央揃え */
 }
 
+.center-button{
+      background-color: #e91eff;
+}
+
 
 
 
@@ -158,14 +162,14 @@ margin-bottom: 3rem;
   font-size: 16px;    /* ボタンのフォントサイズ */
   cursor: pointer;
   border: none;
-  background-color: #007bff;
+  background-color: #e91eff;
   color: white;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
 .center-button:hover {
-  background-color: #0056b3; /* ボタンホバー時の色 */
+  background-color: #e91eff; /* ボタンホバー時の色 */
 }
 
 /* フッター */
@@ -191,6 +195,6 @@ footer {
 }
 
 .social-links a:hover {
-  color: #1e90ff;
+  color: #e91eff;
 }
 </style>

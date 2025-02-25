@@ -1,7 +1,7 @@
 <template>
       <footer>
         <div class="footer-content">
-          <p>&copy; ブロスタサークル | すべての権利を保有</p>
+          <p>&copy; ブロスタサークル | KTC</p>
           <div class="social-links">
             <a href="https://twitter.com/kaguyaclub" target="_blank">公式Twitter</a>
             <a href="https://www.instagram.com/kaguyaclub" target="_blank">公式Instagram</a>
@@ -19,16 +19,16 @@ a {
     color: #1e90ff;
     text-decoration: none;
   }
-  
+
   ul {
     list-style-type: none;
     padding: 0;
   }
-  
+
   p{
     color: white;
   }
- 
+
 /* フッター */
 footer {
   background-color: rgba(17, 17, 17, 0.8);

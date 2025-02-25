@@ -3,6 +3,7 @@
       <h2 class="page-title">活動</h2>
 
       <!-- ニュースリスト部分 -->
+
       <ul v-if="!selectedNewsItem" class="news-list">
         <li v-for="newsItem in news" :key="newsItem.id" class="news-item" @click="showDetails(newsItem)">
          <!--<h2 class="news-title">{{ newsItem.title }}</h2>
@@ -56,7 +57,8 @@
   .page-title {
     font-size: 3em;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 1rem;
+    margin-top: 3.5rem;
     color: #ffffff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   }
@@ -67,16 +69,16 @@
     width: 80%;
     max-width: 1000px;
     margin: 0 auto;
+    margin-bottom: 100px;
   }
 
   .news-item {
+    background-color: rgba(255, 255, 255, 0.9);
 
     color: black;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 15px;
-
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.346);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -87,8 +89,9 @@
   }
 
   .news-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.68);
+    background-color: rgba(252, 251, 251, 0.772);
   }
 
   .news-title {
@@ -128,7 +131,7 @@
     background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 15px;
-    max-width: 750px;
+   width: 41rem;
     margin: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
      margin: 0 auto;
@@ -136,7 +139,7 @@
   }
 
   .news-detail button {
-    background-color: #007bff;
+    background-color: #e91eff;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -146,7 +149,7 @@
   }
 
   .news-detail button:hover {
-    background-color: #0056b3;
+    background-color: #e91eff;
   }
 
   @media (max-width: 768px) {
